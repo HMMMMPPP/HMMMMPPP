@@ -1,32 +1,66 @@
-<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+<svg width="840" height="250" viewBox="0 0 840 250" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      .text { font-family: 'Courier New', Courier, monospace; fill: #2DD4BF; font-weight: bold; }
-      .glitch { animation: glitch 2s infinite; }
-      @keyframes glitch {
-        0% { transform: translate(0, 0); }
-        2% { transform: translate(-2px, 0); }
-        4% { transform: translate(2px, 0); }
-        6% { transform: translate(0, 0); }
-      }
-      .scanline { animation: scan 3s linear infinite; stroke: rgba(45, 212, 191, 0.2); stroke-width: 2; }
-      @keyframes scan { 0% { transform: translateY(0); } 100% { transform: translateY(200px); } }
+      .text-title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; fill: #fff; font-weight: 800; font-size: 50px; letter-spacing: 2px; }
+      .text-sub { font-family: 'Courier New', monospace; fill: #64ffda; font-size: 16px; letter-spacing: 4px; }
+      .ring { fill: none; stroke: #64ffda; stroke-width: 2; opacity: 0.3; transform-origin: 420px 125px; }
+      .core { fill: url(#grad-core); filter: drop-shadow(0 0 10px #64ffda); }
+      
+      @keyframes spin-cw { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      @keyframes spin-ccw { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
+      @keyframes pulse { 0% { opacity: 0.3; stroke-width: 2; } 50% { opacity: 0.8; stroke-width: 3; } 100% { opacity: 0.3; stroke-width: 2; } }
+      @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+      
+      .ring-1 { animation: spin-cw 20s linear infinite; stroke-dasharray: 20 40; }
+      .ring-2 { animation: spin-ccw 15s linear infinite; stroke-dasharray: 5 10; stroke-width: 1; opacity: 0.5; }
+      .ring-3 { animation: pulse 3s ease-in-out infinite; }
+      .float-text { animation: float 6s ease-in-out infinite; }
+      
+      .particle { fill: #64ffda; opacity: 0.6; }
+      @keyframes travel { 0% { cx: 20; opacity: 0; } 50% { opacity: 1; } 100% { cx: 820; opacity: 0; } }
+      .p1 { animation: travel 4s linear infinite; }
+      .p2 { animation: travel 4s linear infinite 2s; }
+      
     </style>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#0d1117;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#161b22;stop-opacity:1" />
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0a192f;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#112240;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a192f;stop-opacity:1" />
     </linearGradient>
+    <radialGradient id="grad-core" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#64ffda;stop-opacity:0" />
+    </radialGradient>
   </defs>
-  <rect width="800" height="200" fill="url(#grad)" rx="10" />
-  <rect width="780" height="180" x="10" y="10" fill="none" stroke="#2DD4BF" stroke-width="2" rx="5" />
+
+  <!-- Background -->
+  <rect width="840" height="250" fill="url(#bg-grad)" rx="15" />
   
-  <text x="50%" y="45%" text-anchor="middle" font-size="48" class="text glitch">DEL REY VALMORIA</text>
-  <text x="50%" y="70%" text-anchor="middle" font-size="20" class="text" fill="#999">> AI ARCHITECT // SYSTEM ONLINE</text>
+  <!-- Circuit Lines -->
+  <line x1="0" y1="125" x2="840" y2="125" stroke="#64ffda" stroke-width="1" opacity="0.1" />
+  <line x1="420" y1="0" x2="420" y2="250" stroke="#64ffda" stroke-width="1" opacity="0.1" />
   
-  <line x1="0" y1="0" x2="800" y2="0" class="scanline" />
+  <!-- Data Particles -->
+  <circle cy="125" r="3" class="particle p1" />
+  <circle cy="125" r="3" class="particle p2" />
+
+  <!-- Neural Core -->
+  <circle cx="420" cy="125" r="90" class="ring ring-1" />
+  <circle cx="420" cy="125" r="110" class="ring ring-2" />
+  <circle cx="420" cy="125" r="70" class="ring ring-3" />
+  <circle cx="420" cy="125" r="15" class="core" />
+
+  <!-- Text -->
+  <g class="float-text">
+    <text x="50%" y="125" text-anchor="middle" dominant-baseline="middle" class="text-title" fill="white" stroke="#0a192f" stroke-width="8" paint-order="stroke">DEL REY VALMORIA</text>
+    <text x="50%" y="125" text-anchor="middle" dominant-baseline="middle" class="text-title">DEL REY VALMORIA</text>
+  </g>
   
-  <circle cx="40" cy="40" r="5" fill="#2DD4BF" opacity="0.5" />
-  <line x1="45" y1="40" x2="100" y2="40" stroke="#2DD4BF" stroke-width="2" opacity="0.5" />
-  <circle cx="760" cy="160" r="5" fill="#2DD4BF" opacity="0.5" />
-  <line x1="700" y1="160" x2="755" y2="160" stroke="#2DD4BF" stroke-width="2" opacity="0.5" />
+  <rect x="270" y="170" width="300" height="30" fill="#0a192f" opacity="0.8" rx="4" />
+  <text x="50%" y="190" text-anchor="middle" dominant-baseline="middle" class="text-sub">>> AI ARCHITECT | NEURAL LINK ESTABLISHED</text>
+
+  <!-- Corner Decorations -->
+  <path d="M20 20 L50 20 L20 50 Z" fill="#64ffda" opacity="0.5" />
+  <path d="M820 230 L790 230 L820 200 Z" fill="#64ffda" opacity="0.5" />
+
 </svg>

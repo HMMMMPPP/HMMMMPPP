@@ -1,38 +1,36 @@
 <svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      .bg { fill: #0d1117; stroke: #333; stroke-width: 1; }
-      .bar { fill: #161b22; stroke-bottom: #333; }
-      .dot { r: 4; }
-      .red { fill: #ff5f56; }
-      .yellow { fill: #ffbd2e; }
-      .green { fill: #27c93f; }
-      .text { font-family: 'Courier New', monospace; fill: #aaa; font-size: 12px; }
-      .cmd { fill: #fff; font-weight: bold; }
-      .success { fill: #2DD4BF; }
-      .line { animation: type 4s steps(40, end); overflow: hidden; white-space: nowrap; }
+      .bg { fill: #112240; }
+      .card { fill: #172a45; stroke: #233554; stroke-width: 2; }
+      .title { font-family: -apple-system, sans-serif; fill: #ccd6f6; font-weight: bold; font-size: 18px; }
+      .text { font-family: 'Courier New', monospace; fill: #8892b0; font-size: 14px; }
+      .highlight { fill: #64ffda; }
+      .icon { fill: #64ffda; opacity: 0.8; }
+      .cursor { animation: blink 1s infinite; fill: #64ffda; }
+      @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     </style>
   </defs>
+
+  <rect width="400" height="300" class="bg" rx="10" />
+
+  <!-- Code Window -->
+  <rect x="20" y="20" width="360" height="260" class="card" rx="5" />
   
-  <rect width="400" height="300" rx="6" class="bg" />
-  <path d="M0 6a6 6 0 0 1 6-6h388a6 6 0 0 1 6 6v24H0V6z" class="bar" />
+  <!-- Header Dots -->
+  <circle cx="40" cy="40" r="5" fill="#ff5f56" />
+  <circle cx="60" cy="40" r="5" fill="#ffbd2e" />
+  <circle cx="80" cy="40" r="5" fill="#27c93f" />
+
+  <!-- Content -->
+  <text x="40" y="80" class="title">class <tspan class="highlight">Architect</tspan>:</text>
   
-  <circle cx="20" cy="15" class="dot red" />
-  <circle cx="35" cy="15" class="dot yellow" />
-  <circle cx="50" cy="15" class="dot green" />
+  <text x="60" y="110" class="text">def __init__(self):</text>
+  <text x="80" y="135" class="text">self.stack = [<tspan class="highlight">"Next.js"</tspan>, <tspan class="highlight">"Python"</tspan>]</text>
+  <text x="80" y="160" class="text">self.passion = <tspan class="highlight">"Autonomous Agents"</tspan></text>
+  <text x="80" y="185" class="text">self.mission = <tspan class="highlight">"Scale Intelligence"</tspan></text>
   
-  <text x="15" y="50" class="text">user@HMMMMPPP-OS:~$ <tspan class="cmd">./init_profile.sh</tspan></text>
-  <text x="15" y="75" class="text">Loaded module: <tspan class="success">PROPOSAL-STUDIO (v1.2)</tspan></text>
-  <text x="15" y="95" class="text">Loaded module: <tspan class="success">COMPLIANCE-SENTINEL (v2.0)</tspan></text>
-  <text x="15" y="115" class="text">Loaded module: <tspan class="success">N8N-PROTOCOLS</tspan></text>
-  <text x="15" y="135" class="text">Connecting to NEURAL_NET...</text>
-  <text x="15" y="155" class="text success">CONNECTION ESTABLISHED.</text>
-  <text x="15" y="175" class="text">--------------------------------</text>
-  <text x="15" y="195" class="text">High-performance Architect</text>
-  <text x="15" y="215" class="text">specializing in Agentic AI</text>
-  <text x="15" y="235" class="text">and Operations Intelligence.</text>
-  
-  <rect x="230" y="230" width="8" height="15" fill="#2DD4BF">
-    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />
-  </rect>
+  <text x="60" y="220" class="text">def build(self):</text>
+  <text x="80" y="245" class="text">return <tspan class="highlight">"The Future"</tspan><tspan class="cursor">_</tspan></text>
+
 </svg>
