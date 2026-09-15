@@ -158,6 +158,7 @@
 </div>
 
 <div align="center"> 
+  <a href="https://delreyvalmoria.com" target="_blank"><img src="https://img.shields.io/badge/PORTFOLIO-EXPLORE-F59E0B?style=for-the-badge&logo=googlechrome&logoColor=white" /></a>
   <a href="https://www.linkedin.com/in/delreyvalmoria" target="_blank"><img src="https://img.shields.io/badge/LINKEDIN-CONNECT-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
   <a href="mailto:delvalmoria@gmail.com" target="_blank"><img src="https://img.shields.io/badge/EMAIL-TRANSMIT-EA4335?style=for-the-badge&logo=gmail&logoColor=white" /></a>
 </div>
